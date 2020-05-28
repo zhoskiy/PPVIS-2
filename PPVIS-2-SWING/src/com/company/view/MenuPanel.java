@@ -11,7 +11,7 @@ public class MenuPanel extends JPanel {
 
     private JMenuItem find;
     private JMenuItem addInfo;
-
+    private JMenuItem sort;
     private JMenuItem removeInfo;
 
     private JMenuItem save;
@@ -45,13 +45,17 @@ public class MenuPanel extends JPanel {
         find = new JMenuItem("Find");
         addInfo = new JMenuItem("Add");
         removeInfo = new JMenuItem("Delete");
+        sort = new JMenuItem("Sort");
 
         editMenu.add(find);
         editMenu.add(addInfo);
         editMenu.add(removeInfo);
+        editMenu.add(sort);
 
         menu.add(editMenu);
     }
+
+    public JMenuItem getSort(){return sort;}
 
     public JMenuItem getFind() {
         return find;

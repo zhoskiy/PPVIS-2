@@ -8,16 +8,16 @@ import java.awt.*;
 
 public class AddFrame extends JFrame {
 
-    JPanel labelPanel;
-    JPanel textPanel;
+    private JPanel labelPanel;
+    private JPanel textPanel;
 
-    DataController DC;
+    private DataController DC;
 
-    JTextField fullName;
-    JTextField accountNumber;
-    JTextField registrationAddress;
-    JTextField landLineNumber;
-    JTextField mobileNumber;
+    private JTextField fullName;
+    private JTextField accountNumber;
+    private JTextField registrationAddress;
+    private JTextField landLineNumber;
+    private JTextField mobileNumber;
 
 
     public JButton add;

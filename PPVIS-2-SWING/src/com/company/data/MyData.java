@@ -1,5 +1,7 @@
 package com.company.data;
 
+import java.util.Comparator;
+
 public class MyData {
     private String surname;
     private String name;
@@ -75,5 +77,24 @@ public class MyData {
         this.landLineNumber = landLineNumber;
     }
 
+    public static final Comparator<MyData> compareByFullName = new Comparator<MyData>() {
+        @Override
+        public int compare(MyData myData, MyData t1) {
+            return myData.getFullName().compareTo(t1.getFullName());
+        }
+    };
 
+    public static final Comparator<MyData> compareByAccountNumber = new Comparator<MyData>() {
+        @Override
+        public int compare(MyData myData, MyData t1) {
+            return myData.getAccountNumber().compareTo(t1.getAccountNumber());
+        }
+    };
+
+    public static final Comparator<MyData> compareByAddressRegistration = new Comparator<MyData>() {
+        @Override
+        public int compare(MyData myData, MyData t1) {
+            return myData.getRegistrationAddress().compareTo(t1.getRegistrationAddress());
+        }
+    };
 }

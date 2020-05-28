@@ -18,6 +18,7 @@ public class Main extends JFrame {
     private AddFrame addFrame;
     private FindFrame findFrame;
     private DelFrame delFrame;
+    private SortFrame sortFrame;
 
     private TablePanel tablePanel;
 
@@ -34,10 +35,13 @@ public class Main extends JFrame {
         addFrame = new AddFrame(this.dataController);
         delFrame = new DelFrame(this.dataController);
         findFrame = new FindFrame(this.dataController);
+        sortFrame = new SortFrame(this.dataController);
 
         FindListener findListener = new FindListener();
         AddListener addListener = new AddListener();
         DelListener delListener = new DelListener();
+        SortListener sortListener = new SortListener();
+
 
         MenuPanel menuPanel = new MenuPanel();
         menuPanel.getFind().addActionListener(findListener);
@@ -45,6 +49,7 @@ public class Main extends JFrame {
         menuPanel.getRemoveInfo().addActionListener(delListener);
         menuPanel.getSave().addActionListener(new SaveListener());
         menuPanel.getLoadFile().addActionListener(new LoadListener());
+        menuPanel.getSort().addActionListener(sortListener);
         panel.add(menuPanel);
 
         tablePanel = new TablePanel(this.dataController);
@@ -55,6 +60,14 @@ public class Main extends JFrame {
         controlPanel.find.addActionListener(findListener);
         controlPanel.add.addActionListener(addListener);
         panel.add(controlPanel);
+
+        sortFrame.sort.addActionListener(actionEvent -> {
+            sortFrame.sortCustomers();
+            tablePanel.showTable(this.dataController);
+            JOptionPane.showMessageDialog(this, "Sorted");
+            sortFrame.dispose();
+
+        });
 
         delFrame.getDelete().addActionListener(actionEvent -> {
             int amount = delFrame.deleteCustomers();
@@ -72,6 +85,13 @@ public class Main extends JFrame {
         setSize(800, 300);
 
         setVisible(true);
+    }
+    private class SortListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            sortFrame.setVisible(!sortFrame.isVisible());
+        }
     }
 
     private class FindListener implements ActionListener {

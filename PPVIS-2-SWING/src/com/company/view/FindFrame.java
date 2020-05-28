@@ -24,7 +24,7 @@ public class FindFrame extends JFrame {
         findButton.addActionListener(actionEvent -> {
             List<String> list = choosePanel.getCustomerFromFields();
             DataController temp = new DataController();
-            temp.setCustomers(this.DC.FindStudents(list.get(0), list.get(1), list.get(2), list.get(3)));
+            temp.setCustomers(this.DC.FindCustomers(list.get(0), list.get(1), list.get(2), list.get(3)));
             tablePanel.setCustomers(temp);
             tablePanel.showTable(temp);
         });

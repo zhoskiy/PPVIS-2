@@ -37,8 +37,12 @@ public class DataController {
         }
         return temp;
     }
-
-    public List<MyData> FindStudents(String surname, String name, String accountNumber, String phoneNumber){
+    public void sortCustomers(boolean fullName, boolean accountNumber, boolean addressRegistration){
+        if(fullName) tableData.sort(MyData.compareByFullName);
+        if(accountNumber) tableData.sort(MyData.compareByAccountNumber);
+        if(addressRegistration) tableData.sort(MyData.compareByAddressRegistration);
+    }
+    public List<MyData> FindCustomers(String surname, String name, String accountNumber, String phoneNumber){
 
         bSurname = (surname.equals(""));
         bName = (name.equals(""));
